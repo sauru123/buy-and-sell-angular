@@ -1,6 +1,6 @@
 {
     "/api/*":{
-        "target": "https://buy-and-sell-backend.onrender.com",
+        "target": "localhost",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
