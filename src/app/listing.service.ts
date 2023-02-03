@@ -29,16 +29,16 @@ export class ListingService {
   ) { }
 
   getListings(): Observable<Listing[]> {
-    return this.http.get<Listing[]>('/api/listings');
+    return this.http.get<Listing[]>('https://buy-and-sell-backend.onrender.com/api/listings');
   }
 
   getListingById(id: string): Observable<Listing> {
-    return this.http.get<Listing>(`/api/listings/${id}`);
+    return this.http.get<Listing>(`https://buy-and-sell-backend.onrender.com/api/listings/${id}`);
   }
 
   addViewToListing(id: string): Observable<Listing> {
     return this.http.post<Listing>(
-      `/api/listings/${id}/add-view`,
+      `https://buy-and-sell-backend.onrender.com/api/listings/${id}/add-view`,
       {}, httpOptions);
   }
 
@@ -47,7 +47,7 @@ export class ListingService {
       this.auth.user.subscribe(user => {
         user && user.getIdToken().then(token => {
           if (user && token) {
-            this.http.get<Listing[]>(`/api/users/${user.uid}/listings`, httpOptionsWithAuthToken(token))
+            this.http.get<Listing[]>(`https://buy-and-sell-backend.onrender.com/api/users/${user.uid}/listings`, httpOptionsWithAuthToken(token))
               .subscribe(listings => {
                 observer.next(listings);
               });
@@ -65,7 +65,7 @@ export class ListingService {
       this.auth.user.subscribe(user => {
         user && user.getIdToken().then(token => {
           if (user && token) {
-            this.http.delete(`/api/listings/${id}`, httpOptionsWithAuthToken(token))
+            this.http.delete(`https://buy-and-sell-backend.onrender.com/api/listings/${id}`, httpOptionsWithAuthToken(token))
               .subscribe(() => {
                 observer.next();
               });
@@ -81,7 +81,7 @@ export class ListingService {
       this.auth.user.subscribe(user => {
         user && user.getIdToken().then(token => {
           if (user && token) {
-            this.http.post<Listing>('/api/listings', { name, description, price }, httpOptionsWithAuthToken(token))
+            this.http.post<Listing>('https://buy-and-sell-backend.onrender.com/api/listings', { name, description, price }, httpOptionsWithAuthToken(token))
               .subscribe(() => {
                 observer.next();
               });
@@ -102,7 +102,7 @@ export class ListingService {
         user && user.getIdToken().then(token => {
           console.log("token",token)
           if (user && token) {
-            this.http.post<Listing>(`/api/listings/${id}`, { name, description, price }, httpOptionsWithAuthToken(token))
+            this.http.post<Listing>(`https://buy-and-sell-backend.onrender.com/api/listings/${id}`, { name, description, price }, httpOptionsWithAuthToken(token))
               .subscribe(() => {
                 observer.next();
               });

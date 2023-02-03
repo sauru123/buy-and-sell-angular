@@ -1,4 +1,5 @@
 export const environment = {
+  httpUrl:'https://buy-and-sell-backend.onrender.com',
   production: true,
   firebase: {
     apiKey: "AIzaSyAbqJlxbrymPqgSMevDTZDrkjd5S6FTlEo",

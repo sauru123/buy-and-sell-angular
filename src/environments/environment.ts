@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  httpUrl:'https://buy-and-sell-backend.onrender.com',
   production: false,
   firebase: {
     apiKey: "AIzaSyAbqJlxbrymPqgSMevDTZDrkjd5S6FTlEo",
